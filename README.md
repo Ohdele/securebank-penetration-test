@@ -39,3 +39,9 @@ All Setup, Discovery, and Confirmation terminal outputs for Steps 1-4 are captur
 - Confirmed code execution: uid=33(www-data)
 - Reverse shell attempt (no connection, but still proves exploit viability) 
  [View Exploitation Logs in outputs/log_05_exploitation.txt](outputs/log_05_exploitation.txt)
+
+
+## Step 6: Privilege Escalation (PwnKit Assessment)
+Objective: Reviewed pkexec, SUID paths, and Polkit version to assess exposure to CVE-2021-4034. Identified expected behavior and a safe environment cleanup.
+
+[View Output in outputs/prooflog_06.txt]

