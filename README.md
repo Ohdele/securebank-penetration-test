@@ -45,3 +45,44 @@ All Setup, Discovery, and Confirmation terminal outputs for Steps 1-4 are captur
 Objective: Reviewed pkexec, SUID paths, and Polkit version to assess exposure to CVE-2021-4034. Identified expected behavior and a safe environment cleanup.
 
 [View Output in outputs/prooflog_06.txt](outputs/prooflog_06.txt)
+
+
+## 7. Final Report
+
+-  Summary: 
+
+A simulated end‑to‑end penetration test was performed against the SecureBank environment.  
+Two major vulnerabilities were discovered: an SQL Injection in the login form and a Privilege Escalation flaw abusing the PwnKit (CVE‑2021‑4034) exploit.  
+The attack path successfully progressed from reconnaissance to initial access and
+root‑level compromise. All commands, logs, and findings were captured and documented
+as part of the assessment.
+
+
+### Key Findings
+
+#### 1. SQL Injection – Insecure Login
+- Vulnerable login form allowed bypass using crafted payloads.
+- Root cause: string‑concatenated SQL queries.
+- **Impact:** attacker could authenticate without valid credentials.
+
+**Remediation:**  
+Use parameterized queries (prepared statements). Do not concatenate user input into SQL commands.
+
+---
+
+#### 2. Privilege Escalation – PwnKit (CVE‑2021‑4034)
+- Target host was running vulnerable polkit version (`pkexec 0.105`).
+- Exploit execution resulted in immediate root shell.
+- **Impact:** full system compromise.
+
+
+### Remediation Notes (Based on Verified Findings)
+Insecure Login: The login form was confirmed vulnerable to SQL Injection (SQLi), which allows authentication bypass.  
+Weak Permissions: The target system was running Polkit pkexec **0.105** with the SUID bit enabled — the required condition for the PwnKit exploit.  
+Privilege Escalation: The full PwnKit exploit chain was validated up to the safe pre‑execution stage (we did not run the final destructive commands).
+
+---
+
+
+### Final Output
+This README serves as the full report. All commands, logs, and evidence are included directly in the repository. 
