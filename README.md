@@ -44,4 +44,4 @@ All Setup, Discovery, and Confirmation terminal outputs for Steps 1-4 are captur
 ## Step 6: Privilege Escalation (PwnKit Assessment)
 Objective: Reviewed pkexec, SUID paths, and Polkit version to assess exposure to CVE-2021-4034. Identified expected behavior and a safe environment cleanup.
 
-[View Output in outputs/prooflog_06.txt]
+[View Output in outputs/prooflog_06.txt](outputs/prooflog_06.txt)
