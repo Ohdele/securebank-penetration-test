@@ -4,7 +4,8 @@ Objective: Demonstrate core skills in web application testing, privilege escalat
 ## Section 1. Setup & Asset Discovery
 * **Target IP:** 192.168.56.103
 * **Services:** Apache/2.4.52, OpenSSH 8.9p1, MariaDB 10.6.22
-[View Output in outputs/proof_log.txt]
+
+[**View Output in proof_log.txt**](outputs/proof_log.txt)
 
 ---
 
@@ -14,14 +15,16 @@ Objective: Demonstrate core skills in web application testing, privilege escalat
     * **SQL Injection (A03):** Confirmed input validation failure on the login page.
     * **Command Injection (A03):** Confirmed successful command execution (`uid=33(www-data)`).
     * **Insecure Design (A04):** Confirmed Unrestricted File Upload vulnerability.
-[View Output in outputs/proof_log.txt]
+
+[**View Output in proof_log.txt**](outputs/proof_log.txt)
 
 ---
 
 ## Section 5. Exploitation & Foothold
 * **Objective:** Achieve initial access via Command Injection.
 * **Result:** Confirmed code execution as `www-data` user via `curl` command.
-[View Exploitation Logs in outputs/log_05_exploitation.txt]
+
+[**View Exploitation Logs in log_05_exploitation.txt**](outputs/log_05_exploitation.txt)
 
 ---
 
@@ -31,7 +34,8 @@ Objective: Demonstrate core skills in web application testing, privilege escalat
     * **Vulnerability:** Target is running Polkit `pkexec` version **0.105**.
     * **Conditions:** The SUID bit is active (`-rwsr-xr-x`), confirming exposure to **PwnKit (CVE-2021-4034)**.
     * **Action:** The full exploit chain was documented, but the final, destructive exploit was **NOT** executed.
-[View Output in outputs/prooflog_06.txt]
+
+[**View Assessment Logs in prooflog_06.txt**](outputs/prooflog_06.txt)
 
 ---
 
